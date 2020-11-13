@@ -2,10 +2,14 @@
   Angular Material App
 </mat-toolbar>
 
-<mat-slider class="progress-slider"
+<audio #audioElement src="https://wiki.selfhtml.org/local/Europahymne.mp3"></audio>#
+
+<button (click)="onPlayClicked()">Play</button>
+
+<mat-slider class="progress-slider" *ngIf="showProgress"
             style="width: 100%"
             color="primary"
-            [value]="progress"
+            [value]="getProgress()"
             (change)="onProgressChanged($event.value)">
 </mat-slider>
 <!--
