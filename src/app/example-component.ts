@@ -22,15 +22,15 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   }
 
   getCurrentSeconds(): number {
-    return this.audioElement.nativeElement.currentTime * 1000;
+    return this.audioElement.nativeElement.currentTime;
   }
 
   getTotalTime(): number {
-    return this.audioElement.nativeElement.duration * 1000;
+    return this.audioElement.nativeElement.duration;
   }
 
   onProgressChanged(value: number) {
-    this.audioElement.nativeElement.currentTime = value;
+    this.audioElement.nativeElement.currentTime = this.getTotalTime() * (value / 100);
   }
 
   onPlayClicked() {
