@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {timer} from 'rxjs';
 
 @Component({
   selector: 'example-component',
@@ -12,6 +13,10 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   showProgress: boolean;
 
   ngOnInit(): void {
+    timer(0, 100)
+      .subscribe(() => {
+        // just something to trigger change detection
+      });
   }
 
   ngAfterViewInit(): void {
